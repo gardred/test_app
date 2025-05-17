@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+        Task {
+            let (data, response) = try! await URLSession.shared.data(from: URL(string: "https://api.spacexdata.com/v4/launches/latest")!)
+            
+            print(data)
+        }
     }
 
 
